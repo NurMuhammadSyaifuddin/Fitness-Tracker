@@ -1,4 +1,4 @@
-package com.project.fitness.ui.main.training.cycling
+package com.project.fitness.ui.main.training.running
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
