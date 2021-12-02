@@ -6,4 +6,8 @@
     <string name="schedules">Schedules</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="current_target">Current Target:</string>
+    <string name="no_data">No Data!</string>
+    <string name="running">Running</string>
+    <string name="cycling">Cycling</string>
 </resources>
