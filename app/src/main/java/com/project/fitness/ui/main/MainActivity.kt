@@ -43,4 +43,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.elevation = 0f
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+
+        if (!(findNavController(R.id.nav_host_controller).navigateUp() || super.onSupportNavigateUp())){
+            onBackPressed()
+        }
+
+        return true
+    }
 }

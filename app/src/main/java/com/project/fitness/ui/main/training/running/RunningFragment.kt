@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.project.fitness.databinding.FragmentRunningBinding
+import com.project.fitness.ui.main.MainActivity
 
 class RunningFragment : Fragment() {
 
@@ -25,4 +26,5 @@ class RunningFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 }

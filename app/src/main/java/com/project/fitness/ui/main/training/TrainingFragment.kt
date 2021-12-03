@@ -7,11 +7,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import com.project.fitness.R
 import com.project.fitness.databinding.FragmentTrainingBinding
+import com.project.fitness.ui.main.MainActivity
+import com.project.fitness.ui.main.training.running.RunningFragment
 import com.project.fitness.utils.hasLocPermission
+import dagger.hilt.android.AndroidEntryPoint
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
+@AndroidEntryPoint
 class TrainingFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     private var _binding: FragmentTrainingBinding? = null
@@ -24,6 +30,23 @@ class TrainingFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         // Inflate the layout for this fragment
         _binding = FragmentTrainingBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        onAction()
+    }
+
+    private fun onAction() {
+        binding.apply {
+            btnRunning.setOnClickListener {
+                (activity as MainActivity?)?.findNavController(R.id.nav_host_controller)?.navigate(R.id.nav_running)
+            }
+            btnCycling.setOnClickListener {
+                (activity as MainActivity?)?.findNavController(R.id.nav_host_controller)?.navigate(R.id.nav_cycling)
+            }
+        }
     }
 
     override fun onDestroy() {

@@ -25,4 +25,14 @@
         android:name="com.project.fitness.ui.main.schedule.ScheduleFragment"
         android:label="@string/schedules"
         tools:layout="@layout/fragment_schedule" />
+    <fragment
+        android:id="@+id/nav_running"
+        android:name="com.project.fitness.ui.main.training.running.RunningFragment"
+        android:label="Running"
+        tools:layout="@layout/fragment_running" />
+    <fragment
+        android:id="@+id/nav_cycling"
+        android:name="com.project.fitness.ui.main.training.cycling.CyclingFragment"
+        android:label="Cycling"
+        tools:layout="@layout/fragment_cycling" />
 </navigation>
