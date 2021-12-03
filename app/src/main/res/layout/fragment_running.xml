@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.training.running.RunningFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view_running"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:transitionName="mapView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/constraint"/>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/img_dial"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/dial"
+        android:layout_marginEnd="@dimen/small_100"
+        android:layout_marginTop="@dimen/small_100"
+        app:layout_constraintTop_toTopOf="@id/map_view_running"
+        app:layout_constraintEnd_toEndOf="@id/map_view_running"
+        android:contentDescription="@string/compas_dial" />
+    
+    <ImageView
+        android:id="@+id/img_hands"
+        android:layout_width="5dp"
+        android:layout_height="28dp"
+        android:src="@drawable/hands"
+        app:layout_constraintTop_toTopOf="@id/img_dial"
+        app:layout_constraintBottom_toBottomOf="@id/img_dial"
+        app:layout_constraintStart_toStartOf="@id/img_dial"
+        app:layout_constraintEnd_toEndOf="@id/img_dial"
+        android:contentDescription="@string/compas_hands" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLetsGo_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_running_start"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/constraint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/map_view_running">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tier"
+            android:textSize="@dimen/h2"
+            app:layout_constraintBottom_toTopOf="@id/tv_counter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/h3"
+            android:text="@string/counter"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/btn_start_running"
+            app:layout_constraintTop_toBottomOf="@id/tv_timer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_cancel_running"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:background="@drawable/bg_btn"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/normal_100"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_counter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_start_running"/>
+
+        <Button
+            android:id="@+id/btn_start_running"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:background="@drawable/bg_btn"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/normal_100"
+            app:layout_constraintTop_toBottomOf="@id/tv_counter"
+            app:layout_constraintStart_toEndOf="@id/btn_cancel_running"
+            app:layout_constraintEnd_toStartOf="@id/btn_finish_running"/>
+
+        <Button
+            android:id="@+id/btn_finish_running"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:background="@drawable/bg_btn"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/normal_100"
+            app:layout_constraintTop_toBottomOf="@id/tv_counter"
+            app:layout_constraintStart_toEndOf="@id/btn_start_running"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
